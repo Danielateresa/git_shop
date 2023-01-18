@@ -25,6 +25,8 @@
 
         <div class="container-fluid">
             <div class="row">
+                @include('partials.header')
+
                 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                     <div class="position-sticky pt-3 sidebar-sticky">
                         <ul class="nav flex-column">
@@ -36,7 +38,8 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                    <span data-feather="shopping-cart" class="align-text-bottom" href="{{route('admin.products.index')}}"></span>
+                                    <span data-feather="shopping-cart" class="align-text-bottom"
+                                        href="{{ route('admin.products.index') }}"></span>
                                     Products
                                 </a>
                             </li>
@@ -45,16 +48,18 @@
                 </nav>
 
                 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <div
+                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                         <h1 class="h2">Dashboard</h1>
+                    </div>
+                    <div class="content">
+                        @yield('content')
                     </div>
                 </main>
             </div>
         </div>
 
-        <main class="">
-            @yield('content')
-        </main>
+
     </div>
 </body>
 
