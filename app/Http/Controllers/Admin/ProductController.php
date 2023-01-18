@@ -6,6 +6,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -17,6 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::orderByDesc('id')->get();
+        $categories = Category::orderByDesc('id')->get();
 
         return view('admin.products.index', compact('products'));
     }
@@ -28,7 +30,11 @@ class ProductController extends Controller
      */
     public function create()
     {
+
+         $categories = Category::orderByDesc('id')->get();
+
         return view('admin.products.create');
+
     }
 
     /**
@@ -69,7 +75,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $categories = Category::orderByDesc('id')->get();
     }
 
     /**
