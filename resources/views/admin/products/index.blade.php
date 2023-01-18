@@ -14,7 +14,8 @@
     </div>
     @endif
 
-    <a name="" id="" class="btn  btn-primary position-fixed bottom-0 end-0 m-3" href="{{ route('admin.products.create') }}" role="button">
+    <a name="" id="" class="btn  btn-primary position-fixed bottom-0 end-0 m-3"
+        href="{{ route('admin.products.create') }}" role="button">
         <i class="fas fa-plus fa-lg fa-fw"> </i>
     </a>
 
@@ -46,17 +47,20 @@
                     <td>{{ $product->slug }}</td>
 
                     <td>
-                        <a class="btn btn-primary btn-sm" href="{{ route('admin.products.show', $product->slug) }}" role="button">
+                        <a class="btn btn-primary btn-sm" href="{{ route('admin.products.show', $product->slug) }}"
+                            role="button">
                             <i class="fas fa-eye fa-sm fa-fw"></i>
                         </a>
 
-                        <a class="btn btn-secondary btn-sm" href="{{ route('admin.products.edit', $product->slug) }}" role="button">
+                        <a class="btn btn-secondary btn-sm" href="{{ route('admin.products.edit', $product->slug) }}"
+                            role="button">
                             <i class="fas fa-pencil fa-sm fa-fw"></i>
                         </a>
 
 
                         <!-- Modal trigger button -->
-                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#product-{{ $product->id }}">
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#deleteProduct-{{ $product->id }}">
 
                             <i class="fas fa-trash fa-sm fa-fw"></i>
                         </button>

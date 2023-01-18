@@ -100,6 +100,6 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return to_route('products.index')->with('message', "$product->name deleted successfully");
+        return to_route('admin.products.index')->with('message', "$product->name deleted successfully");
     }
 }
