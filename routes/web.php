@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,16 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 
 Route::middleware('auth', 'verified')->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    // Route::resource('posts', PostController::class)->parameters([
-    //     'posts' => 'post:slug'
-    // ]);
+    Route::resource('products', ProductController::class)->parameters([
+        'products' => 'product:slug'
+    ]);
 });
 
 require __DIR__ . '/auth.php';
