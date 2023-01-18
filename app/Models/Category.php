@@ -6,13 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Product extends Model
+class Category extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['name', 'slug', 'description', 'price', 'image'];
-
-
 
        /**
      * The projects that belong to the Technology
@@ -21,6 +17,7 @@ class Product extends Model
      */
     public function projects(): BelongsToMany
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Product::class);
     }
+
 }
