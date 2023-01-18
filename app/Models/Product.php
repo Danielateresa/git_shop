@@ -26,7 +26,8 @@ class Product extends Model
      */
     public function projects(): BelongsToMany
     {
-        return $this->belongsToMany(Category::class);
+    return $this->belongsToMany(Category::class);
+}
 
     public static function createSlug($name)
     {
