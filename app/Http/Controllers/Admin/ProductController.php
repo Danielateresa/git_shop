@@ -30,7 +30,11 @@ class ProductController extends Controller
      */
     public function create()
     {
+
          $categories = Category::orderByDesc('id')->get();
+
+        return view('admin.products.create');
+
     }
 
     /**
@@ -41,7 +45,15 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $validated_data = $request->validated();
+
+        $product_slug = Product::createSlug($validated_data['name']);
+
+        $validated_data['slug'] = $product_slug;
+
+        $product = Product::create($validated_data);
+
+        return to_route('admin.products.index')->with('message', 'New product added');
     }
 
     /**
