@@ -14,6 +14,12 @@
             </div>
         @endif
 
+        <a name="" id="" class="btn  btn-primary position-fixed bottom-0 end-0 m-3"
+            href="{{ route('admin.products.create') }}" role="button">
+            <i class="fas fa-plus fa-lg fa-fw"> </i>
+        </a>
+
+
 
         <div class="table-responsive">
             <table class="table table-striped
@@ -41,7 +47,7 @@
                             <td>{{ $product->slug }}</td>
 
                             <td>
-                                <a class="btn btn-prymary btn-sm" href="{{ route('admin.products.show', $product->slug) }}"
+                                <a class="btn btn-primary btn-sm" href="{{ route('admin.products.show', $product->slug) }}"
                                     role="button">
                                     <i class="fas fa-eye fa-sm fa-fw"></i>
                                 </a>
