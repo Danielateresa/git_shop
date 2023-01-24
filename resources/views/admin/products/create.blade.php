@@ -58,7 +58,7 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
-            <div class="mb-3">
+            <div class="mb-3">fredfefefef>Add image</label>
                 <label for="product_age" class="form-label">Add image</label>
                 <input type="file" name="product_image" id="product_image"
                     class="form-control @error('product_image') is-invalid @enderror" placeholder=""
