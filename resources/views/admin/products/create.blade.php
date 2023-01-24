@@ -14,7 +14,7 @@
     </div>
     @endif
 
-    <form action="{{route('admin.products.store')}}" method="post">
+    <form action="{{route('admin.products.store')}}" method="post" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-3">
@@ -59,15 +59,15 @@
         <div class="alert alert-danger">{{$message}}</div>
         @enderror
 
-        <!-- <div class="mb-3">
-            <label for="image" class="form-label">Add image</label>
-            <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror"
+        <div class="mb-3">
+            <label for="product_image" class="form-label">Add image</label>
+            <input type="file" name="product_image" id="product_image" class="form-control @error('product_image') is-invalid @enderror"
                 placeholder="" aria-describedby="helpId">
             <small id="helpId" class="text-muted">Must be max 250kb</small>
         </div>
         @error('image')
         <div class="alert alert-danger">{{$message}}</div>
-        @enderror -->
+        @enderror
 
         <button class="btn btn-primary" type="submit">Add Product</button>
 

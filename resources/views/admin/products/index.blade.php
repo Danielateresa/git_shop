@@ -42,7 +42,7 @@
                     <td scope="row">{{ $product->id }}</td>
                     <td>{{ $product->name }}</td>
                     <td>
-                        <img src="{{ $product->name }}" alt="">
+                        <img width="100px" src="{{asset('storage/' . $product->product_image)}}">
                     </td>
                     <td>{{ $product->slug }}</td>
 
@@ -74,7 +74,6 @@
                     <td scope="row">Sorry no records to show</td>
                 </tr>
                 @endforelse
-
             </tbody>
             <tfoot>
 

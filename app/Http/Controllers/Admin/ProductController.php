@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -31,10 +32,9 @@ class ProductController extends Controller
     public function create()
     {
 
-         $categories = Category::orderByDesc('id')->get();
+        $categories = Category::orderByDesc('id')->get();
 
         return view('admin.products.create');
-
     }
 
     /**
@@ -48,6 +48,12 @@ class ProductController extends Controller
         $validated_data = $request->validated();
 
         $product_slug = Product::createSlug($validated_data['name']);
+
+        if ($request->hasFile('product_image')) {
+            $product_image = Storage::put('uploads', $validated_data['product_image']);
+            //sostituisco il valore di cover_img nei dati validati
+            $validated_data['product_image'] = $product_image;
+        }
 
         $validated_data['slug'] = $product_slug;
 
@@ -65,7 +71,6 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         return view('admin.products.show', compact('product'));
-
     }
 
     /**
